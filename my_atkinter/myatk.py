@@ -1,5 +1,6 @@
 from tkinter import Tk
 import asyncio
+from typing import Coroutine
 
 class Atk(Tk):
     def __init__(self, interval:int=10, *args):
@@ -21,6 +22,9 @@ class Atk(Tk):
             self.__loop.run_forever()
             self.after(self.__interval, _do_async_loop)
         self.after(self.__interval, _do_async_loop)
+    
+    def add_task(self, coro:Coroutine):
+        self.__loop.create_task(coro)
     
     def destroy(self):
         self.__loop.stop()
