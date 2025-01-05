@@ -17,7 +17,7 @@ class Atk(Tk):
         self.__interval = interval
         # do asyncio loop only once
         def _do_async_loop():
-            self.__loop.call_soon(self.loop.stop)
+            self.__loop.call_soon(self.__loop.stop)
             self.__loop.run_forever()
             self.after(self.__interval, _do_async_loop)
         self.after(self.__interval, _do_async_loop)
