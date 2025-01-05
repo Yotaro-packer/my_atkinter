@@ -25,6 +25,3 @@ class Atk(Tk):
     def destroy(self):
         self.__loop.stop()
         super().destroy()
-
-root = Atk(interval="wew")
-print(root.interval)
