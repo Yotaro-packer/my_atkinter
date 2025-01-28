@@ -36,7 +36,7 @@ class Atk(tk.Tk):
         return self.__loop.create_task(coro)
     
     # make task that do all coroutines and add task to loop
-    def add_tasks(self, *coros:list[Coroutine]) -> asyncio.Task:
+    def make_gather(self, *coros:list[Coroutine]) -> asyncio.Task:
         return self.__loop.create_task(self._do_coros(coros))
         
     # func that use in add_tasks()
