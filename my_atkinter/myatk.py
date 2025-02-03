@@ -10,10 +10,6 @@ class Atk(tk.Tk):
         self.__loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.__loop)
         
-        # asyncio Queue and Queue.join()'s Task
-        self.__queue = asyncio.Queue()
-        self.__qTask:asyncio.Task|None = None
-        
         # set asyncio loop's interval
         if type(interval) is not int:
             raise TypeError(f"bad argument {interval!r}: interval must be int, not {type(interval).__name__}")
