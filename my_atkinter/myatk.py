@@ -47,12 +47,6 @@ class Atk(tk.Tk):
     def after_task(self, task:asyncio.Task, callback) -> None:
         task.add_done_callback(callback)
     
-    # add task to queue then process queue item if queue's Task is None or done
-    def add_queue(self, coro:Coroutine) -> None:
-        self.__queue.put_nowait(coro)
-        if self.__qTask is None or self.__qTask.done():
-            self.__qTask = self.add_task(self.__queue.join())
-    
     # get atk's event loop
     def get_event_loop(self) -> asyncio.AbstractEventLoop:
         return self.__loop
