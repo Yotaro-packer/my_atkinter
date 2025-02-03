@@ -37,7 +37,7 @@ class Atk(tk.Tk):
         
     # func that use in add_tasks()
     async def _do_coros(self, coros:list[Coroutine]) -> Coroutine:
-        await asyncio.gather(*coros)
+        return await asyncio.gather(*coros)
     
     # add callback to task
     def after_task(self, task:asyncio.Task, callback) -> None:
